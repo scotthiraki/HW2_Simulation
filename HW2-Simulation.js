@@ -1,4 +1,4 @@
-//Based on Jared Tarbell's Substrate algorithm concept.
+//Based on Jared Tarbell's Substrate algorithm concept http://www.complexification.net/gallery/machines/substrate/
 //Perpendicular growth rule.
 //mrdoob's "Map Generator"
 
@@ -10,7 +10,7 @@ var socket = io.connect("http://24.16.255.56:8888");
 socket.on("load", function (data) {
 	data = JSON.parse(data['data']);
 	boids = data;
-	setInterval();
+	setInterval(1);
 });
 
 
@@ -85,7 +85,7 @@ var context = canvas.getContext('2d');
 var image, data;
 
 var boids = [];
-boids.push(new Boid( width / 2, height / 2, Math.random() * 720 * Math.PI / 180 * 2));
+//boids.push(new Boid( width / 2, height / 2, Math.random() * 720 * Math.PI / 180 * 2));
 canvas.addEventListener("mousedown", mouseDown, false);
 function randfloat(amt){
     return Math.random() * amt - amt * 0.5;
