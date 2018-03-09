@@ -11,18 +11,27 @@ socket.on("load", function (data) {
 	data = JSON.parse(data['data']);
 	boids = data;
 	setInterval(1);
+	//console.log(data);
 });
 
 
 function save_simulate(ev) {
 	socket.emit("save", { studentname: "Scott Hiraki", statename: "aState", data: JSON.stringify(boids)});
+
 	console.log(JSON.stringify(boids));
+	//console.log(data);
 
 }
 function load_simulate(ev) {
 	socket.emit("load", { studentname: "Scott Hiraki", statename: "aState"});
+	//console.log(JSON.stringify(boids));
+
 
 }
+function clear_canvas(ev) {
+	context.clearRect(0, 0, canvas.width, canvas.height);
+} 
+
 
 var Boid = function (x, y, angle) {
 
